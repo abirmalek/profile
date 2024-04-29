@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css" target="_blank" rel="noopener">
+    <title>Sweet Baking</title>
+    <meta name="description" content="Showcase your sweet culinary artistry">
+    <meta charset="utf-8">
+  </head>
+  <body>
+
+    <div class="topnav">
+      <a link="#about">Contact</a>
+      <a link="#projects">Projects</a>
+      <a link="#resumé">Resumé</a>
+      <a link="#expertise">Expertise</a>
+    </div>
+
+    <div id="green-box" ></div>
+    <div id="box-overlay" ></div>
+    <div id="photo"><img src="images/photo.jpg" width="200" height="200"></div>
+
+    <h1>
+      Hello, I´m Abir and I am a<br><span id="typewriter"></span><span id="cursor">|</span>
+    </h1>
+
+    <div id="about">ABOUT ME</div>
+
+    <script>
+      function sleep(ms) {
+        return new Promise((resolve) => setTimeout(resolve, ms));
+      }
+
+      const phrases = ["Fullstack Developer...", "Front-End Developer...", "Product Manager..."];
+      const el = document.getElementById("typewriter");
+
+      let sleepTime = 50;
+
+      let curPhraseIndex = 0;
+
+      const writeLoop = async () => {
+        while (true) {
+          let curWord = phrases[curPhraseIndex];
+
+          for (let i = 0; i < curWord.length; i++) {
+            el.innerText = curWord.substring(0, i + 1);
+            await sleep(sleepTime);
+          }
+
+          await sleep(1000 * 2);
+
+          for (let i = curWord.length; i > 0; i--) {
+            el.innerText = curWord.substring(0, i - 1);
+            await sleep(sleepTime);
+          }
+
+          await sleep(sleepTime == 5);
+
+          if (curPhraseIndex === phrases.length - 1) {
+            curPhraseIndex = 0;
+          } else {
+            curPhraseIndex++;
+          }
+        }
+      };
+
+      writeLoop();
+    </script>
+
+
+
+    <div id="me">
+      I'm a Junior Full-Stack Developer with a finance twist, bringing an analytical flair to my coding adventures. Fresh out of the intense 9-week Web Development Bootcamp at Le Wagon in Barcelona (December 2023), I've got more than just coding skills up my sleeve.
+
+      Beyond code, I'm all about improving processes through data analysis. My skill set is a mix of coding finesse and soft skills that bring teams to life. I'm eager to apply this combo in future adventures, contributing to dynamic projects, sparking innovation, and driving ongoing improvements.
+
+      Whether it's streamlining processes, crafting user-friendly interfaces, or dreaming up the next big thing, I'm ready to dive in and make a real impact.
+
+      <br> <br>Let´s build something awesome!
+      <hr>
+</div>
+
+  </body>
+</html>
